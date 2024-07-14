@@ -44,7 +44,7 @@ void parse_delimiters(const char *numbers, char *delimiters, const char **num_st
     }
 }
 
-void add_numbers(int num, int *negatives, int* sum)
+void add_numbers(int num, int *negatives, int* sum, int *negative_count)
 {
     if (num < 0) {
         negatives[(*negative_count)++] = num;
@@ -58,7 +58,7 @@ void tokenize_and_sum(const char *num_start, const char *delimiters, int *sum, i
 
     while (token != NULL) {
         int num = atoi(token);
-        add_numbers(num, negatives, sum);
+        add_numbers(num, negatives, sum, negative_count);
         token = strtok(NULL, delimiters);
     }
 
