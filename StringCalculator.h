@@ -1,6 +1,6 @@
 int add(char* input)
 {
-  if(input == '\0')
+  if(*input == '\0')
   {
     return 0;
   }
