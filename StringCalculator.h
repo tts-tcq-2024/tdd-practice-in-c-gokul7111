@@ -26,20 +26,23 @@ void add_delimiters(const char *delimiter_start, const char *delimiter_end, char
         if (*delimiter_start == '[') delimiter_start++;
     }
 }
-
+void getDelimiters(char* delimiter_start, char* delimiter_end, char* delimiters)
+{
+    if (*delimiter_start == '[') {
+        delimiter_start++;
+        add_delimiters(delimiter_start, delimiter_end, delimiters);
+    } else {
+        delimiters[0] = *delimiter_start;
+        delimiters[1] = '\0';
+    }
+}
 void parse_delimiters(const char *numbers, char *delimiters, const char **num_start) {
     if (strncmp(numbers, "//", 2) == 0) {
         const char *delimiter_end = strstr(numbers, "\n");
         if (delimiter_end != NULL) {
             *num_start = delimiter_end + 1;
             const char *delimiter_start = numbers + 2;
-            if (*delimiter_start == '[') {
-                delimiter_start++;
-                add_delimiters(delimiter_start, delimiter_end, delimiters);
-            } else {
-                delimiters[0] = *delimiter_start;
-                delimiters[1] = '\0';
-            }
+            getDelimiters(delimiter_start, delimiter_end, delimiters);
         }
     }
 }
