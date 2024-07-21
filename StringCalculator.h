@@ -1,3 +1,4 @@
+//input values should be less than 1001
 int add_arr(int *arr,int cnt)
 {
     int i = 0;
@@ -14,6 +15,8 @@ int add_arr(int *arr,int cnt)
     return total;
 }
  
+ 
+//check if its a number
 int check_num(const char ch)
 {
     if(ch >= '0' && ch <= '9')
@@ -48,6 +51,7 @@ void strtonum(const char* ch, int *num_arr,int *cnt)
     }
 }
  
+//sum of the inputs
 int sum(const char *ch)
 {
     int cnt =0;
@@ -63,6 +67,7 @@ int sum(const char *ch)
     return total;
 }
  
+//check if its a negative number
 int neg_loop(const char *ch,int i)
 {
       if(ch[i] == '-')
@@ -90,6 +95,7 @@ int check_neg(const char *ch)
     return res;
 }
  
+//check if empty
 int check_empty(const char* ch)
 {
     int strlength = strlen(ch);
@@ -124,6 +130,8 @@ int check_string(const char *ch)
  
     return 0;
 }
+ 
+// add function
  
 int add(const char *ch)
 {
